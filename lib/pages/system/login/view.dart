@@ -14,10 +14,17 @@ class LoginPage extends GetView<LoginController> {
       children: [
         const HelloWidget(),
         ElevatedButton(
-            onPressed: () {
-              controller.onTap(DateTime.now().microsecondsSinceEpoch);
-            },
-            child: const Text('点击'))
+          onPressed: () {
+            controller.onTap(DateTime.now().microsecondsSinceEpoch);
+          },
+          child: const Text('点击'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Get.toNamed('/splash');
+          },
+          child: const Text('跳转 splash'),
+        )
       ],
     ));
   }
