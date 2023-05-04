@@ -3,7 +3,10 @@ import 'package:flutter_woo_commerce_getx_learn/common/routers/names.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/routers/pages.dart';
 import 'package:get/route_manager.dart';
 
-void main() {
+import 'global.dart';
+
+Future<void> main() async {
+  await Global.init();
   runApp(const MyApp());
 }
 
