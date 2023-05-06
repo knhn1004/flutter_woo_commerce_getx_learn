@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'index.dart';
 
 /// 主题
 class AppTheme {
-  static final ThemeData _base = ThemeData(
-    textTheme: GoogleFonts.comfortaaTextTheme(),
-  );
-
   /// 亮色
-  static ThemeData light = _base.copyWith(
+  static ThemeData light = ThemeData(
+    brightness: Brightness.light,
     colorScheme: lightColorScheme,
   );
 
   /// 暗色
-  static ThemeData dark = _base.copyWith(
+  static ThemeData dark = ThemeData(
+    brightness: Brightness.dark,
     colorScheme: darkColorScheme,
+    textTheme: light.textTheme.apply(
+      bodyColor: Colors.white,
+      displayColor: Colors.white,
+    ),
   );
 }
