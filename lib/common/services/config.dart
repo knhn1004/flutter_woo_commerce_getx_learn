@@ -42,9 +42,34 @@ class ConfigService extends GetxService {
     Storage().setString(Constants.storageLanguageCode, value.languageCode);
   }
 
+  // 主题
+  final RxBool _isDarkModel = Get.isDarkMode.obs;
+  bool get isDarkModel => _isDarkModel.value;
+
+  // 切换 theme
+  Future<void> switchThemeModel() async {
+    _isDarkModel.value = !_isDarkModel.value;
+    Get.changeTheme(
+      _isDarkModel.value == true ? AppTheme.dark : AppTheme.light,
+    );
+    await Storage().setString(Constants.storageThemeCode,
+        _isDarkModel.value == true ? "dark" : "light");
+  }
+
+  // 初始 theme
+  void initTheme() {
+    var themeCode = Storage().getString(Constants.storageThemeCode);
+    _isDarkModel.value = themeCode == "dark" ? true : false;
+    Get.changeTheme(
+      themeCode == "dark" ? AppTheme.dark : AppTheme.light,
+    );
+  }
+
   @override
   void onReady() {
     super.onReady();
+    getPlatform();
     initLocale();
+    initTheme();
   }
 }
