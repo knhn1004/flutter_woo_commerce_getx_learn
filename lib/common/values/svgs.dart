@@ -1,4 +1,4 @@
-class AssetSvgs {
+class AssetsSvgs {
   static const cBagSvg = 'assets/svgs/c-bag.svg';
   static const cBikeSvg = 'assets/svgs/c-bike.svg';
   static const cElectricSvg = 'assets/svgs/c-electric.svg';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_woo_commerce_getx_learn/common/routers/names.dart';
 import 'package:get/get.dart';
 
 import '../../../common/index.dart';
@@ -19,6 +20,10 @@ class StylesIndexPage extends GetView<StylesIndexController> {
       ListTile(
         onTap: controller.onThemeSelected,
         title: Text("主题 : ${ConfigService.to.isDarkModel ? "Dark" : "Light"}"),
+      ),
+      ListTile(
+        onTap: () => Get.toNamed(RouteNames.stylesIcon),
+        title: const TextWidget.body1("Icon 图标"),
       ),
     ]);
   }
