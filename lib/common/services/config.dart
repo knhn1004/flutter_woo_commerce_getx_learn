@@ -43,23 +43,23 @@ class ConfigService extends GetxService {
   }
 
   // 主题
-  final RxBool _isDarkModel = Get.isDarkMode.obs;
-  bool get isDarkModel => _isDarkModel.value;
+  final RxBool _isDarkMode = Get.isDarkMode.obs;
+  bool get isDarkMode => _isDarkMode.value;
 
   // 切换 theme
   Future<void> switchThemeModel() async {
-    _isDarkModel.value = !_isDarkModel.value;
+    _isDarkMode.value = !_isDarkMode.value;
     Get.changeTheme(
-      _isDarkModel.value == true ? AppTheme.dark : AppTheme.light,
+      _isDarkMode.value == true ? AppTheme.dark : AppTheme.light,
     );
     await Storage().setString(Constants.storageThemeCode,
-        _isDarkModel.value == true ? "dark" : "light");
+        _isDarkMode.value == true ? "dark" : "light");
   }
 
   // 初始 theme
   void initTheme() {
     var themeCode = Storage().getString(Constants.storageThemeCode);
-    _isDarkModel.value = themeCode == "dark" ? true : false;
+    _isDarkMode.value = themeCode == "dark" ? true : false;
     Get.changeTheme(
       themeCode == "dark" ? AppTheme.dark : AppTheme.light,
     );

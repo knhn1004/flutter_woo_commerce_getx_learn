@@ -19,7 +19,7 @@ class StylesIndexPage extends GetView<StylesIndexController> {
       ),
       ListTile(
         onTap: controller.onThemeSelected,
-        title: Text("主题 : ${ConfigService.to.isDarkModel ? "Dark" : "Light"}"),
+        title: Text("主题 : ${ConfigService.to.isDarkMode ? "Dark" : "Light"}"),
       ),
       ListTile(
         onTap: () => Get.toNamed(RouteNames.stylesIcon),
