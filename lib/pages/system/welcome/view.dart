@@ -13,10 +13,13 @@ class WelcomePage extends GetView<WelcomeController> {
       init: controller,
       builder: (controller) => controller.items == null
           ? const SizedBox()
-          : WelcomeSliderWidget(
-              controller.items!,
-              onPageChanged: controller.onPageChanged,
-              carouselController: controller.carouselController,
+          : AspectRatio(
+              aspectRatio: MediaQuery.of(Get.context!).size.width / 800,
+              child: WelcomeSliderWidget(
+                controller.items!,
+                onPageChanged: controller.onPageChanged,
+                carouselController: controller.carouselController,
+              ),
             ),
     );
   }
@@ -37,7 +40,7 @@ class WelcomePage extends GetView<WelcomeController> {
                 onTap: controller.onToMain,
               ).tight(
                 width: double.infinity,
-                height: 50.h,
+                height: 6.h,
               )
             : <Widget>[
                 // 跳过
@@ -62,7 +65,6 @@ class WelcomePage extends GetView<WelcomeController> {
     );
   }
 
-  // 内容页
 // 内容页
   Widget _buildView() {
     return <Widget>[
@@ -83,7 +85,6 @@ class WelcomePage extends GetView<WelcomeController> {
       init: WelcomeController(),
       builder: (_) {
         return Scaffold(
-          //appBar: AppBar(title: const Text("welcome")),
           body: SafeArea(
             child: _buildView(),
           ),

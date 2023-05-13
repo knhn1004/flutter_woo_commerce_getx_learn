@@ -13,6 +13,8 @@ class Global {
 
     await Storage().init();
 
+    //Loading();
+
     await Future.wait([
       Get.putAsync<ConfigService>(() async => await ConfigService().init()),
     ]).whenComplete(() {});
