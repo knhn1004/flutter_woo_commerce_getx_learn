@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             theme: ConfigService.to.isDarkMode ? AppTheme.dark : AppTheme.light,
             //initialRoute: RouteNames.systemSplash,
-            initialRoute: RouteNames.stylesStylesIndex,
+            initialRoute: RouteNames.systemSplash,
             getPages: RoutePages.list,
             navigatorObservers: [RoutePages.observer],
 // 多语言

@@ -1,7 +1,6 @@
 import 'package:flutter_woo_commerce_getx_learn/common/routers/names.dart';
+import 'package:flutter_woo_commerce_getx_learn/common/services/config.dart';
 import 'package:get/get.dart';
-
-import '../../../common/index.dart';
 
 class SplashController extends GetxController {
   SplashController();
@@ -30,6 +29,8 @@ class SplashController extends GetxController {
     // 删除设备启动图
     //FlutterNativeSplash.remove();
     //_initData();
+
+    /// 只有第一次进入才会显示欢迎页
     if (ConfigService.to.isAlreadyOpen) {
       _jumpToPage(RouteNames.systemMain);
     } else {
