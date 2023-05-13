@@ -16,36 +16,61 @@ class WelcomePage extends GetView<WelcomeController> {
           : WelcomeSliderWidget(
               controller.items!,
               onPageChanged: controller.onPageChanged,
+              carouselController: controller.carouselController,
             ),
     );
   }
 
   // 控制栏
+  // bar
+  // skip + indicator + next
   Widget _buildBar() {
     return GetBuilder<WelcomeController>(
       id: "bar",
       init: controller,
       builder: (controller) {
-        return <Widget>[
-          // 指示标
-          SliderIndicatorWidget(
-            length: 3,
-            currentIndex: controller.currentIndex,
-          ),
-        ].toRow(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-        );
+        return controller.isShowStart
+            ?
+            // 开始
+            ButtonWidget.primary(
+                LocaleKeys.welcomeStart.tr,
+                onTap: controller.onToMain,
+              ).tight(
+                width: double.infinity,
+                //height: 50.h,
+                height: 50,
+              )
+            : <Widget>[
+                // 跳过
+                ButtonWidget.text(
+                  LocaleKeys.welcomeSkip.tr,
+                  onTap: controller.onToMain,
+                ),
+                // 指示标
+                SliderIndicatorWidget(
+                  length: 3,
+                  currentIndex: controller.currentIndex,
+                ),
+                // 下一页
+                ButtonWidget.text(
+                  LocaleKeys.welcomeNext.tr,
+                  onTap: controller.onNext,
+                ),
+              ].toRow(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              );
       },
     );
   }
 
   // 内容页
+// 内容页
   Widget _buildView() {
     return <Widget>[
       // slider切换
       _buildSlider(),
-      _buildBar(),
       // 控制栏
+      _buildBar(),
     ]
         .toColumn(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
