@@ -132,8 +132,9 @@ class ImageWidget extends StatelessWidget {
         );
         break;
       case ImageWidgetType.file:
+        dynamic file = File(url);
         image = ExtendedImage.file(
-          File(url),
+          file,
           width: width,
           height: height,
           fit: fit,
