@@ -3,6 +3,7 @@ import 'package:flutter_woo_commerce_getx_learn/common/routers/names.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/routers/observers.dart';
 import 'package:flutter_woo_commerce_getx_learn/pages/cart/apply_promo_code/index.dart';
 import 'package:flutter_woo_commerce_getx_learn/pages/system/user_agreement/index.dart';
+import 'package:flutter_woo_commerce_getx_learn/pages/system/welcome/view.dart';
 import 'package:get/get.dart';
 
 import '../../pages/cart/buy_done/view.dart';
@@ -188,6 +189,10 @@ class RoutePages {
     GetPage(
       name: RouteNames.systemUserAgreement,
       page: () => const UserAgreementPage(),
+    ),
+    GetPage(
+      name: RouteNames.systemWelcome,
+      page: () => const WelcomePage(),
     ),
   ];
 }

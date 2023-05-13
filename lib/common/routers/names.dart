@@ -36,5 +36,6 @@ class RouteNames {
   static const systemRegister = '/system_register';
   static const systemRegisterPin = '/system_register_pin';
   static const systemSplash = '/system_splash';
+  static const systemWelcome = '/system_welcome';
   static const systemUserAgreement = '/system_user_agreement';
 }
