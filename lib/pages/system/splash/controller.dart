@@ -1,6 +1,8 @@
 import 'package:flutter_woo_commerce_getx_learn/common/routers/names.dart';
 import 'package:get/get.dart';
 
+import '../../../common/index.dart';
+
 class SplashController extends GetxController {
   SplashController();
 
@@ -15,10 +17,10 @@ class SplashController extends GetxController {
   //   super.onInit();
   // }
 
-  _jumpToPage() {
+  _jumpToPage(String routeName) {
     // 欢迎页
     Future.delayed(const Duration(seconds: 1), () {
-      Get.offAllNamed(RouteNames.systemWelcome);
+      Get.offAllNamed(routeName);
     });
   }
 
@@ -28,7 +30,11 @@ class SplashController extends GetxController {
     // 删除设备启动图
     //FlutterNativeSplash.remove();
     //_initData();
-    _jumpToPage();
+    if (ConfigService.to.isAlreadyOpen) {
+      _jumpToPage(RouteNames.systemMain);
+    } else {
+      _jumpToPage(RouteNames.systemWelcome);
+    }
   }
 
   // @override
