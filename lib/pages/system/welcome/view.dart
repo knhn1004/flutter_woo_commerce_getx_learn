@@ -37,8 +37,7 @@ class WelcomePage extends GetView<WelcomeController> {
                 onTap: controller.onToMain,
               ).tight(
                 width: double.infinity,
-                //height: 50.h,
-                height: 50,
+                height: 50.h,
               )
             : <Widget>[
                 // 跳过
